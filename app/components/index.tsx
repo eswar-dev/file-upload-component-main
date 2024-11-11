@@ -22,6 +22,10 @@ const FileUploadComponent: React.FC = () => {
   const [uploadStatus, setUploadStatus] = useState<FileStatus>('empty');
   const [css] = useStyletron();
   const uploadIntervalsRef = useRef<Map<string, NodeJS.Timeout>>(new Map());
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);  // Confirms component is running in the client
+  }, []);
 
   // Modify the useEffect hook to handle all file status updates
   useEffect(() => {
@@ -155,7 +159,7 @@ const FileUploadComponent: React.FC = () => {
         }
      
         {/* File Uploader Component */}
-        {uploadStatus === 'empty' && typeof window !== 'undefined' && (
+        {uploadStatus === 'empty' && isClient&& (
           <FileUploader
             onDropAccepted={handleFileUpload}
             overrides={{
@@ -243,7 +247,7 @@ const FileUploadComponent: React.FC = () => {
                     Retry
                   </Button>
                 ) : (
-                  file.status === 'success' && (
+                  file.status === 'success' && isClient && (
                     <div className={css({display:'flex',alignItems:'center',justifyContent:'center',gap:'10px',marginTop:'10px' })}>
                       <Button
                         kind={KIND.tertiary}
