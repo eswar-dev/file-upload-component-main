@@ -17,7 +17,7 @@ type FileType = {
   url?: string;
 };
 
-const FileUploadComponent: React.FC = () => {
+export const FileUploadComponent: React.FC = () => {
   const [files, setFiles] = useState<FileType[]>([]);
   const [uploadStatus, setUploadStatus] = useState<FileStatus>('empty');
   const [css] = useStyletron();
@@ -296,4 +296,3 @@ const FileUploadComponent: React.FC = () => {
   );
 };
 
-export default FileUploadComponent;
