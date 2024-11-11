@@ -1,6 +1,4 @@
 "use client"
-import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import React from 'react';
 import { Provider as StyletronProvider } from 'styletron-react';

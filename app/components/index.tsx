@@ -176,16 +176,15 @@ const FileUploadComponent: React.FC = () => {
         <div className={css({ marginTop: '20px', display: 'flex', flexDirection: 'row', gap: '10px' })} >
          
           {files.map((file: FileType, index: number) => (
-            <>
-             <div
+            <div
               key={index}
               className={css({
                 border: file.status === 'success' ? '2px solid #048848' : '1px solid #ccc',
                 borderRadius: '8px',
                 padding: '10px',
                 marginBottom: '12px',
-                backgroundColor:  '#fff' ,
-                maxHeight:'100%',
+                backgroundColor: '#fff',
+                maxHeight: '100%',
               })}
             >
               <div className={css({ display: 'flex', flexDirection: 'column', alignItems: 'center',maxHeight:'100%' })}>
@@ -213,16 +212,19 @@ const FileUploadComponent: React.FC = () => {
                   
                   </div> 
                   <Button
-                      kind={KIND.primary}
-                      onClick={() => cancelUpload(file.name)}
+                        kind={KIND.tertiary}
+                        onClick={() => cancelUpload(file.name)}
                       overrides={{
                         BaseButton: {
                           style: {
-                            backgroundColor: 'grey',
-                            borderRadius: '8px',
+                            backgroundColor: '#E8E8E8',
+                            borderRadius: '30px',
+                            width:'128px',
+                            height:'36px',
+                            fontSize:'14px',
+                            fontWeight:'600',
                           },
-                        },
-                      }}
+                        },                      }}
                     >
                       Cancel
                     </Button>
@@ -283,8 +285,6 @@ const FileUploadComponent: React.FC = () => {
                 )}
               </div>
             </div>
-            </>
-          
           ))}
         </div>
       </div>
